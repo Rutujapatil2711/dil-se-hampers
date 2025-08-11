@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dil Se Hamper - Premium Gift Hampers</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 120px 2rem 80px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero-content .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 2rem;
+            background: #f8f9ff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 2rem;
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 80px 2rem;
+            background: #f8f9ff;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .product-info p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 2rem;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+
+        .contact-info p {
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 1rem;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Dil Se ❤️ Hamper</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Dil Se ❤️ Hamper</h1>
+            <p class="tagline">Thoughtfully packed, Beautifully presented, Made Dil Se ❤️.</p>
+            <a href="#products" class="cta-button">Explore Our Hampers</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Celebrating Every Occasion with Elegance</h3>
+                    <p>Dil Se ❤️ Hamper is your premier destination for thoughtfully curated gift hampers that speak from the heart. We believe every celebration deserves something special, something that reflects the love and care you put into choosing the perfect gift.</p>
+                    <p>Our premium hampers start from ₹500 and can be customized to your taste, budget, and style. Whether it's a birthday, wedding, festival, or any moment worth cherishing, we create hampers that make memories last forever.</p>
+                    <p>Founded by Rutuja Patil, we bring you hampers that are not just gifts, but expressions of love and thoughtfulness.</p>
+                </div>
+                <div class="about-image">
+                    <div style="width: 400px; height: 300px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                        🎁 Premium Hampers
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎁</div>
+                    <h3>Custom Hampers</h3>
+                    <p>Personalized hampers tailored to your specific needs, occasion, and budget. We work with you to create the perfect gift.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💝</div>
+                    <h3>Occasion Special</h3>
+                    <p>Special hampers designed for birthdays, weddings, festivals, corporate events, and all your special moments.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚚</div>
+                    <h3>Delivery Service</h3>
+                    <p>Reliable delivery across the city with careful handling to ensure your hampers arrive in perfect condition.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Design Consultation</h3>
+                    <p>Expert advice on choosing the right combination of products and packaging for your specific occasion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">Our Premium Hampers</h2>
+            
+            <!-- Product Categories -->
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h3 style="color: #667eea; font-size: 1.5rem; margin-bottom: 1rem;">Choose Your Perfect Hamper</h3>
+                <p style="color: #666; font-size: 1.1rem;">From budget-friendly to luxury, we have hampers for every occasion and budget</p>
+            </div>
+
+            <div class="products-grid">
+                <!-- Budget Hampers -->
+                <div class="product-card">
+                    <div class="product-image">🎁</div>
+                    <div class="product-info">
+                        <h3>Gift Bags & Favor Boxes</h3>
+                        <p>Elegant gift bags and favor boxes perfect for weddings and special events.</p>
+                        <div class="product-price">Starting from ₹500</div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">💍</div>
+                    <div class="product-info">
+                        <h3>Jewelry Boxes</h3>
+                        <p>Luxurious jewelry boxes with premium packaging for your precious gifts.</p>
+                        <div class="product-price">Starting from ₹800</div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">📦</div>
+                    <div class="product-info">
+                        <h3>Paper Bags & Gable Boxes</h3>
+                        <p>Eco-friendly paper bags and stylish gable boxes for sustainable gifting.</p>
+                        <div class="product-price">Starting from ₹600</div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">🌸</div>
+                    <div class="product-info">
+                        <h3>Organza Fabric Bags</h3>
+                        <p>Delicate organza fabric bags that add elegance to any gift presentation.</p>
+                        <div class="product-price">Starting from ₹700</div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">🛍</div>
+                    <div class="product-info">
+                        <h3>Frosted Gift Bags</h3>
+                        <p>Sophisticated frosted gift bags with a modern, premium appeal.</p>
+                        <div class="product-price">Starting from ₹750</div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">✨</div>
+                    <div class="product-info">
+                        <h3>Luxury Hampers</h3>
+                        <p>Premium luxury hampers with the finest products and packaging.</p>
+                        <div class="product-price">Starting from ₹1500</div>
+                    </div>
+                </div>
+
+                <!-- New Products Inspired by hamperland.in -->
+                <div class="product-card">
+                    <div class="product-image">🍫</div>
+                    <div class="product-info">
+                        <h3>Chocolate & Sweets Hamper</h3>
+                        <p>Delicious assortment of premium chocolates, candies, and sweet treats.</p>
+                        <div class="product-price">Starting from ₹1200</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🍷</div>
+                    <div class="product-info">
+                        <h3>Wine & Gourmet Hamper</h3>
+                        <p>Sophisticated hampers with fine wines, cheeses, and gourmet snacks.</p>
+                        <div class="product-price">Starting from ₹2500</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🧴</div>
+                    <div class="product-info">
+                        <h3>Beauty & Wellness Hamper</h3>
+                        <p>Luxurious beauty products, skincare essentials, and wellness items.</p>
+                        <div class="product-price">Starting from ₹1800</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">👶</div>
+                    <div class="product-info">
+                        <h3>Baby & Kids Hamper</h3>
+                        <p>Adorable hampers filled with toys, clothes, and baby essentials.</p>
+                        <div class="product-price">Starting from ₹1000</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🏠</div>
+                    <div class="product-info">
+                        <h3>Home & Living Hamper</h3>
+                        <p>Elegant home decor items, candles, and lifestyle products.</p>
+                        <div class="product-price">Starting from ₹1600</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">☕</div>
+                    <div class="product-info">
+                        <h3>Coffee & Tea Hamper</h3>
+                        <p>Premium coffee beans, exotic teas, and elegant accessories.</p>
+                        <div class="product-price">Starting from ₹900</div>
+                    </div>
+                </div>
+
+                <!-- Premium Hampers Inspired by houseofhampers -->
+                <div class="product-card">
+                    <div class="product-image">💎</div>
+                    <div class="product-info">
+                        <h3>Diamond Collection Hamper</h3>
+                        <p>Ultra-premium hampers with luxury items and exclusive packaging.</p>
+                        <div class="product-price">Starting from ₹5000</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🎭</div>
+                    <div class="product-info">
+                        <h3>Celebrity Style Hamper</h3>
+                        <p>Red carpet-worthy hampers with designer items and premium brands.</p>
+                        <div class="product-price">Starting from ₹3500</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🌍</div>
+                    <div class="product-info">
+                        <h3>International Hamper</h3>
+                        <p>Global delicacies and international brands in elegant packaging.</p>
+                        <div class="product-price">Starting from ₹4000</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🎨</div>
+                    <div class="product-info">
+                        <h3>Artisan Crafted Hamper</h3>
+                        <p>Handcrafted items and artisanal products in unique packaging.</p>
+                        <div class="product-price">Starting from ₹2200</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🌱</div>
+                    <div class="product-info">
+                        <h3>Eco-Friendly Hamper</h3>
+                        <p>Sustainable and organic products in environmentally conscious packaging.</p>
+                        <div class="product-price">Starting from ₹1400</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🎊</div>
+                    <div class="product-info">
+                        <h3>Festival Special Hamper</h3>
+                        <p>Traditional festival items and cultural products for celebrations.</p>
+                        <div class="product-price">Starting from ₹1300</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; color: white;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Can't Find What You're Looking For?</h3>
+                <p style="font-size: 1.1rem; margin-bottom: 1.5rem; opacity: 0.9;">We specialize in custom hampers! Tell us your requirements and we'll create the perfect hamper for you.</p>
+                <a href="#contact" class="cta-button" style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);">Get Custom Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Occasions Section -->
+    <section class="special-occasions" style="padding: 80px 2rem; background: white;">
+        <div class="container">
+            <h2 class="section-title">Special Occasions & Corporate Hampers</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                
+                <!-- Wedding Hampers -->
+                <div style="background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%); padding: 2rem; border-radius: 15px; border-left: 4px solid #ff9800; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">💒</div>
+                    <h3 style="color: #e65100; margin-bottom: 1rem;">Wedding Hampers</h3>
+                    <p style="color: #8d6e63; margin-bottom: 1rem;">Elegant hampers for bridal showers, wedding favors, and guest gifts.</p>
+                    <div style="font-weight: bold; color: #ff9800;">Starting from ₹2000</div>
+                </div>
+
+                <!-- Corporate Hampers -->
+                <div style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); padding: 2rem; border-radius: 15px; border-left: 4px solid #2196f3; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🏢</div>
+                    <h3 style="color: #1976d2; margin-bottom: 1rem;">Corporate Hampers</h3>
+                    <p style="color: #2c3e50; margin-bottom: 1rem;">Professional hampers for clients, employees, and business partners.</p>
+                    <div style="font-weight: bold; color: #2196f3;">Starting from ₹1500</div>
+                </div>
+
+                <!-- Birthday Hampers -->
+                <div style="background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%); padding: 2rem; border-radius: 15px; border-left: 4px solid #9c27b0; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎂</div>
+                    <h3 style="color: #7b1fa2; margin-bottom: 1rem;">Birthday Hampers</h3>
+                    <p style="color: #4a4a4a; margin-bottom: 1rem;">Personalized birthday hampers for all ages and preferences.</p>
+                    <div style="font-weight: bold; color: #9c27b0;">Starting from ₹800</div>
+                </div>
+
+                <!-- Festival Hampers -->
+                <div style="background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%); padding: 2rem; border-radius: 15px; border-left: 4px solid #4caf50; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎊</div>
+                    <h3 style="color: #2e7d32; margin-bottom: 1rem;">Festival Hampers</h3>
+                    <p style="color: #2c3e50; margin-bottom: 1rem;">Traditional festival hampers for Diwali, Holi, Christmas, and more.</p>
+                    <div style="font-weight: bold; color: #4caf50;">Starting from ₹1000</div>
+                </div>
+
+                <!-- Anniversary Hampers -->
+                <div style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); padding: 2rem; border-radius: 15px; border-left: 4px solid #ff9800; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">💕</div>
+                    <h3 style="color: #e65100; margin-bottom: 1rem;">Anniversary Hampers</h3>
+                    <p style="color: #8d6e63; margin-bottom: 1rem;">Romantic hampers to celebrate love and milestones.</p>
+                    <div style="font-weight: bold; color: #ff9800;">Starting from ₹1200</div>
+                    </div>
+
+                <!-- Get Well Hampers -->
+                <div style="background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%); padding: 2rem; border-radius: 15px; border-left: 4px solid #e91e63; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🏥</div>
+                    <h3 style="color: #c2185b; margin-bottom: 1rem;">Get Well Hampers</h3>
+                    <p style="color: #4a4a4a; margin-bottom: 1rem;">Thoughtful hampers to brighten someone's recovery journey.</p>
+                    <div style="font-weight: bold; color: #e91e63;">Starting from ₹900</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>Ready to create the perfect hamper for your special occasion? Contact us today!</p>
+                    <p><strong>Email:</strong> info@dilsehamper.com</p>
+                    <p><strong>Phone:</strong> +91 9004629479</p>
+                    <p><strong>Address:</strong> Mumbai, Maharashtra, India</p>
+                    <p><strong>Hours:</strong> Monday - Sunday, 9:00 AM - 8:00 PM</p>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="tel" placeholder="Your Phone">
+                        <textarea placeholder="Tell us about your requirements" rows="4" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>Dil Se ❤️ Hamper</h3>
+            <p>Thoughtfully packed, Beautifully presented, Made Dil Se ❤️.</p>
+            <div class="social-links">
+                <a href="#">📱</a>
+                <a href="#">📘</a>
+                <a href="#">📷</a>
+                <a href="#">💬</a>
+            </div>
+            <p>&copy; 2024 Dil Se ❤️ Hamper. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 
